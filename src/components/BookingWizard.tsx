@@ -572,7 +572,7 @@ export const BookingWizard: React.FC<BookingWizardProps> = ({
                         <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full leading-normal ${
                           isSelected ? 'bg-[#FFF9F1]/20 text-[#C6A16B]' : 'bg-[#570A1B]/10 text-[#570A1B]'
                         }`}>
-                          {apt.area} م² · صالة ومطبخ · {apt.id === 'apt-01' ? 'غرفة ماستر' : 'غرفتا نوم [سريران مفردة]'} · 2 حمامات
+                          {apt.area} م² · صالة ومطبخ · غرفة ماستر + غرفة بسريرين مفردة · 2 حمامات
                         </span>
                         <span className={`w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs shrink-0 ${
                           isSelected ? 'bg-[#C6A16B] text-[#570A1B]' : 'bg-[#FFF9F1] text-[#570A1B]'

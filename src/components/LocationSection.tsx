@@ -11,7 +11,6 @@ import {
   Store, 
   Compass, 
   ExternalLink,
-  Search,
   Clock
 } from 'lucide-react';
 import { SITE_INFO } from '../data/apartmentsData';
@@ -25,7 +24,6 @@ import {
 
 export const LocationSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [searchQuery, setSearchQuery] = useState<string>('');
 
   const categories = [
     { id: 'all', name: 'الكل', count: NEARBY_LANDMARKS.length, icon: Sparkles },
@@ -40,14 +38,9 @@ export const LocationSection: React.FC = () => {
 
   const filteredLandmarks = useMemo(() => {
     return NEARBY_LANDMARKS.filter((item: LandmarkItem) => {
-      const matchCat = activeCategory === 'all' || item.category === activeCategory;
-      const matchSearch = searchQuery.trim() === '' || 
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (item.description && item.description.toLowerCase().includes(searchQuery.toLowerCase())) ||
-        (item.subCategory && item.subCategory.toLowerCase().includes(searchQuery.toLowerCase()));
-      return matchCat && matchSearch;
+      return activeCategory === 'all' || item.category === activeCategory;
     });
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory]);
 
   return (
     <section id="location" className="py-12 md:py-20 bg-[#FFF9F1] text-[#3A2522] border-b border-[#C6A16B]/30">
@@ -131,7 +124,7 @@ export const LocationSection: React.FC = () => {
             أبرز المعالم والوجهات القريبة المحدثة بالكامل
         ======================================================== */}
         <div className="space-y-6 pt-4 text-right">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#C6A16B]/40 pb-4">
+          <div className="border-b border-[#C6A16B]/40 pb-4">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#C6A16B] bg-[#570A1B] px-3 py-1 rounded-full">
                 <span>دليل الطائف السياحي والشامل</span>
@@ -142,18 +135,6 @@ export const LocationSection: React.FC = () => {
               <p className="text-xs sm:text-sm text-[#3A2522]/80 font-light">
                 استكشف قائمة مختارة ومحدثة لأشهر الأماكن في الطائف والشفا مع زر خرائط Google لكل وجهة.
               </p>
-            </div>
-
-            {/* Search Filter */}
-            <div className="relative w-full md:w-72">
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="ابحث عن معلم، كوفي، مطعم، خدمة..."
-                className="w-full py-2.5 pr-10 pl-4 rounded-xl bg-white border border-[#C6A16B] text-xs focus:outline-none focus:ring-2 focus:ring-[#570A1B] text-right"
-              />
-              <Search className="w-4 h-4 text-[#C6A16B] absolute right-3.5 top-1/2 -translate-y-1/2" />
             </div>
           </div>
 
@@ -306,19 +287,6 @@ export const LocationSection: React.FC = () => {
                   </a>
                 </div>
               ))}
-            </div>
-          )}
-
-          {/* Empty search fallback */}
-          {activeCategory !== 'program' && filteredLandmarks.length === 0 && (
-            <div className="text-center py-10 bg-[#F3E2CC]/40 rounded-2xl border border-[#C6A16B]/40 space-y-2">
-              <p className="text-sm font-bold text-[#570A1B]">لم يتم العثور على نتائج تطابق بحثك</p>
-              <button
-                onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
-                className="text-xs text-[#C6A16B] bg-[#570A1B] px-3 py-1.5 rounded-lg"
-              >
-                إعادة ضبط البحث
-              </button>
             </div>
           )}
 

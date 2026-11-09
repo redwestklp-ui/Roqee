@@ -240,7 +240,7 @@ export const ApartmentDetailView: React.FC<ApartmentDetailViewProps> = ({
                 <Bed className="w-5 h-5 text-[#570A1B] mx-auto mb-1.5" />
                 <div className="text-[11px] text-[#3A2522]/70">غرف النوم</div>
                 <div className="font-alexandria font-bold text-xs sm:text-sm text-[#570A1B]">
-                  {apartment.id === 'apt-01' ? 'غرفه ماستر مع دوره مياه' : 'غرفتا نوم [سريران مفرده]'}
+                  غرفة ماستر + غرفة نوم (سريرين مفردة)
                 </div>
               </div>
 

@@ -18,7 +18,9 @@ import {
   Coffee,
   Car,
   ArrowRight,
-  ZoomIn
+  ZoomIn,
+  Crown,
+  Home
 } from 'lucide-react';
 import { APARTMENTS, Apartment, SITE_INFO } from '../data/apartmentsData';
 import { ImageLightboxModal } from './ImageLightboxModal';
@@ -91,100 +93,150 @@ export const ApartmentsShowcase: React.FC<ApartmentsShowcaseProps> = ({
                 اختر الشقة لاستعراض تفاصيلها
               </h1>
               <div className="w-16 h-1 bg-[#C6A16B] mx-auto rounded-full"></div>
-              <p className="text-xs sm:text-sm md:text-base text-[#3A2522]/85 leading-relaxed font-light">
-                شقتان فندقيتان فاخرتان في الدور الأرضي بتأثيث راقٍ متكامل وخصوصية تامة، اختر الشقة المناسبة للاطلاع على كافة صورها وتجهيزاتها ومرافقها.
+              <p className="text-sm sm:text-base md:text-lg text-[#261513] font-medium leading-relaxed max-w-2xl mx-auto">
+                شقق فندقيه فاخره بتأثيث راقٍ متكامل وخصوصية تامة، اختر الشقة المناسبة للاطلاع على كافة صورها وتجهيزاتها ومرافقها.
               </p>
             </div>
 
-            {/* The 2 Apartment Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8 max-w-4xl mx-auto">
+            {/* The 2 Apartment Cards (Natural, Compact, Proportional) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 max-w-2xl sm:max-w-3xl mx-auto">
               {APARTMENTS.map((apt: Apartment) => (
                 <div
                   key={apt.id}
                   onClick={() => handleOpenApartmentDetails(apt.id)}
-                  className="bg-[#FFF9F1] p-5 sm:p-7 rounded-2xl border-2 border-[#C6A16B] hover:border-[#570A1B] shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer text-right flex flex-col justify-between group select-none relative overflow-hidden"
+                  className="bg-[#FFFDF9] p-4.5 sm:p-5 rounded-2xl sm:rounded-3xl border-2 border-[#D8BC93] hover:border-[#610B1C] shadow-[0_8px_24px_rgba(97,11,28,0.06)] hover:shadow-[0_16px_32px_rgba(97,11,28,0.12)] transition-all duration-300 cursor-pointer text-right flex flex-col justify-between group select-none relative overflow-hidden"
                 >
-                  {/* Decorative top gold hairline */}
-                  <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-[#C6A16B] via-[#ebd2a9] to-[#C6A16B]"></div>
+                  <div className="space-y-3">
+                    {/* Top Row: Burgundy Pill Badge (Right) + Circle Number (Left) */}
+                    <div className="flex items-center justify-between gap-2">
+                      {/* Top-Right: Burgundy Pill Badge with Gold Crown */}
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#610B1C] text-[#FFF4E4] shadow-xs border border-[#C6A16B]/30">
+                        <Crown className="w-3 h-3 text-[#E5BE7B] stroke-[2.2] fill-[#E5BE7B]/30 shrink-0" />
+                        <span className="text-[11px] font-alexandria font-bold tracking-wider">
+                          VIP
+                        </span>
+                        <span className="text-[#C6A16B] text-[10px] font-bold">•</span>
+                        <span className="text-[11px] font-alexandria font-bold tracking-wide">
+                          {apt.area} متر مربع
+                        </span>
+                      </div>
 
-                  <div className="space-y-4">
-                    {/* Top Row: Badge & Apartment Number */}
-                    <div className="flex items-center justify-between">
-                      <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#570A1B] text-[#C6A16B] shadow-xs">
-                        شقة فاخرة VIP · {apt.area} م²
-                      </span>
-
-                      <span className="w-9 h-9 rounded-full flex items-center justify-center font-alexandria font-bold text-sm bg-[#F3E2CC] text-[#570A1B] border border-[#C6A16B] group-hover:bg-[#570A1B] group-hover:text-[#C6A16B] transition-colors shadow-xs">
+                      {/* Top-Left: Solid Burgundy Circle with Number */}
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#610B1C] text-[#FFF4E4] flex items-center justify-center font-alexandria font-bold text-sm sm:text-base shadow-xs border border-[#C6A16B]/30 group-hover:scale-105 transition-transform shrink-0">
                         {apt.number}
-                      </span>
+                      </div>
                     </div>
 
                     {/* Title & Tagline */}
-                    <div>
-                      <h2 className="font-alexandria font-bold text-xl sm:text-2xl text-[#570A1B] group-hover:text-[#84394A] transition-colors">
+                    <div className="text-right pt-0.5 space-y-0.5">
+                      <h2 className="font-alexandria font-bold text-xl sm:text-2xl text-[#610B1C] group-hover:text-[#841A2E] transition-colors leading-snug">
                         {apt.name}
                       </h2>
-                      <p className="text-xs text-[#3A2522]/75 mt-1 font-light leading-relaxed">
-                        {apt.tagline}
+                      <p className="text-xs text-[#6C524C] font-normal leading-relaxed">
+                        فاخره استثنائية مناسبة
                       </p>
                     </div>
 
-                    {/* Specifications Summary (Mobile Friendly) */}
-                    <div className="grid grid-cols-3 gap-2 py-2.5 px-3 rounded-xl bg-[#F3E2CC] border border-[#C6A16B]/50 text-center text-xs">
-                      <div>
-                        <div className="text-[10px] text-[#3A2522]/70 font-medium">المساحة</div>
-                        <div className="font-bold font-alexandria text-xs sm:text-sm text-[#570A1B]">{apt.area} م²</div>
-                      </div>
-                      <div>
-                        <div className="text-[10px] text-[#3A2522]/70 font-medium">غرف النوم</div>
-                        <div className="font-bold font-alexandria text-xs sm:text-sm text-[#570A1B]">
-                          {apt.id === 'apt-01' ? 'غرفة ماستر' : 'غرفتا نوم'}
+                    {/* Specifications Box: 3 Columns with beige card and icons */}
+                    <div className="bg-[#FCEFE0] rounded-xl border border-[#E5CEB1] py-2.5 px-2 sm:px-3 my-1.5 shadow-xs">
+                      <div className="grid grid-cols-3 divide-x divide-x-reverse divide-[#DFC6A7] text-center items-center">
+                        {/* 1. المساحة (Right) */}
+                        <div className="px-1">
+                          <div className="flex items-center justify-center gap-1 text-[10px] sm:text-[11px] text-[#6C524C] font-medium mb-0.5">
+                            <Home className="w-3.5 h-3.5 text-[#610B1C] shrink-0" />
+                            <span>المساحة</span>
+                          </div>
+                          <div className="font-alexandria font-bold text-sm sm:text-base text-[#610B1C]">
+                            {apt.area} م²
+                          </div>
                         </div>
-                      </div>
-                      <div>
-                        <div className="text-[10px] text-[#3A2522]/70 font-medium">دورات المياه</div>
-                        <div className="font-bold font-alexandria text-xs sm:text-sm text-[#570A1B]">2 حمامات</div>
+
+                        {/* 2. غرف النوم (Center) */}
+                        <div className="px-1">
+                          <div className="flex items-center justify-center gap-1 text-[10px] sm:text-[11px] text-[#6C524C] font-medium mb-0.5">
+                            <Bed className="w-3.5 h-3.5 text-[#610B1C] shrink-0" />
+                            <span>غرف النوم</span>
+                          </div>
+                          <div className="font-alexandria font-bold text-xs sm:text-sm text-[#610B1C]">
+                            غرفة ماستر
+                          </div>
+                        </div>
+
+                        {/* 3. دورات المياه (Left) */}
+                        <div className="px-1">
+                          <div className="flex items-center justify-center gap-1 text-[10px] sm:text-[11px] text-[#6C524C] font-medium mb-0.5">
+                            <Bath className="w-3.5 h-3.5 text-[#610B1C] shrink-0" />
+                            <span>دورات المياه</span>
+                          </div>
+                          <div className="font-alexandria font-bold text-sm sm:text-base text-[#610B1C]">
+                            2 حمامات
+                          </div>
+                        </div>
                       </div>
                     </div>
 
-                    {/* Features Highlights */}
-                    <div className="space-y-1.5 text-xs text-[#3A2522]/85">
-                      <div className="flex items-center gap-1.5">
-                        <Check className="w-3.5 h-3.5 text-[#570A1B] shrink-0" />
-                        <span>{apt.floor} · صالة ومطبخ ودخول ذكي</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <Check className="w-3.5 h-3.5 text-[#570A1B] shrink-0" />
-                        <span>
-                          {apt.id === 'apt-01' 
-                            ? 'غرفة ماستر مع دورة مياه + غرفتا نوم [سريران مفردة]' 
-                            : 'غرفتا نوم [سريران مفردة] مريحة'}
+                    {/* Features Checklist with Burgundy Circle Icons on the Right */}
+                    <div className="space-y-2 text-xs sm:text-[13px] text-[#3A2320] text-right py-0.5">
+                      {/* Line 1 */}
+                      <div className="flex items-center gap-2 justify-start">
+                        <span className="w-4 h-4 rounded-full bg-[#610B1C] text-[#FFF4E4] flex items-center justify-center shrink-0 shadow-xs">
+                          <Check className="w-2.5 h-2.5 text-[#FFF4E4] stroke-[3]" />
+                        </span>
+                        <span className="font-medium text-[#3A2320]">
+                          صالة ومطبخ ودخول ذكي
                         </span>
                       </div>
-                      <div className="flex items-center gap-1.5">
-                        <Check className="w-3.5 h-3.5 text-[#570A1B] shrink-0" />
-                        <span>عدد مراتب اضافيه 3 مع بطانيات ومخدات (سعة حتى 7 ضيوف)</span>
+
+                      {/* Line 2 */}
+                      <div className="flex items-center gap-2 justify-start">
+                        <span className="w-4 h-4 rounded-full bg-[#610B1C] text-[#FFF4E4] flex items-center justify-center shrink-0 shadow-xs">
+                          <Check className="w-2.5 h-2.5 text-[#FFF4E4] stroke-[3]" />
+                        </span>
+                        <span className="font-medium text-[#3A2320]">
+                          غرفة ماستر مع دورة مياه + <strong className="text-[#610B1C] font-bold">غرفة اضافية (سريرين مفردة)</strong>
+                        </span>
+                      </div>
+
+                      {/* Line 3 */}
+                      <div className="flex items-center gap-2 justify-start">
+                        <span className="w-4 h-4 rounded-full bg-[#610B1C] text-[#FFF4E4] flex items-center justify-center shrink-0 shadow-xs">
+                          <Check className="w-2.5 h-2.5 text-[#FFF4E4] stroke-[3]" />
+                        </span>
+                        <span className="font-medium text-[#3A2320]">
+                          عدد مراتب اضافية 3 مع بطانيات ومخدات (سعة حتى 7 ضيوف)
+                        </span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Bottom Row: Price & Action CTA */}
-                  <div className="pt-4 mt-4 border-t border-[#C6A16B]/30 flex items-center justify-between gap-3">
-                    <div>
-                      <div className="text-[10px] text-[#3A2522]/70">سعر الليلة الواحدة</div>
-                      <div className="font-alexandria font-bold text-lg sm:text-xl text-[#570A1B]">
-                        {apt.pricePerNight.toLocaleString('ar-SA')}{' '}
-                        <span className="text-xs font-normal text-[#C6A16B]">ر.س</span>
-                      </div>
-                    </div>
+                  {/* Horizontal Divider */}
+                  <div className="w-full h-px bg-[#E8D5BF]/80 my-3"></div>
 
+                  {/* Bottom Row: Price & Action CTA Button */}
+                  <div className="flex items-center justify-between gap-3">
+                    {/* Burgundy Pill Button on the Left */}
                     <button
                       type="button"
-                      className="px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-alexandria font-bold bg-[#570A1B] text-[#FFF9F1] group-hover:bg-[#84394A] transition-all shadow-md flex items-center gap-1.5 border border-[#C6A16B]/50"
+                      className="px-4 py-2 sm:px-4.5 sm:py-2.5 rounded-full bg-[#610B1C] hover:bg-[#7D1126] text-[#FFFDF9] font-alexandria font-bold text-xs shadow-xs transition-all flex items-center gap-1.5 cursor-pointer border border-[#C6A16B]/40 group-hover:scale-[1.02]"
                     >
+                      <ChevronLeft className="w-3.5 h-3.5 text-[#FFFDF9] stroke-[2.5]" />
                       <span>استعراض التفاصيل</span>
-                      <ChevronLeft className="w-4 h-4 text-[#C6A16B]" />
                     </button>
+
+                    {/* Price on the Right */}
+                    <div className="text-right">
+                      <div className="text-[10px] sm:text-[11px] text-[#6C524C] font-normal leading-none mb-1">
+                        سعر الليلة الواحدة
+                      </div>
+                      <div className="flex items-baseline gap-1 justify-end">
+                        <span className="font-alexandria font-black text-xl sm:text-2xl text-[#610B1C] tracking-tight">
+                          {apt.id === 'apt-01' ? '1.450' : '1.150'}
+                        </span>
+                        <span className="font-alexandria font-bold text-xs text-[#C6A16B]">
+                          ر.س
+                        </span>
+                      </div>
+                    </div>
                   </div>
 
                 </div>
@@ -394,7 +446,7 @@ export const ApartmentsShowcase: React.FC<ApartmentsShowcaseProps> = ({
                   <Bed className="w-5 h-5 text-[#570A1B] mx-auto mb-1" />
                   <div className="text-[11px] text-[#3A2522]/80">غرف النوم</div>
                   <div className="font-alexandria font-bold text-xs sm:text-sm text-[#570A1B]">
-                    {currentApartment.id === 'apt-01' ? 'غرفه ماستر مع دوره مياه' : 'غرفتا نوم [سريران مفرده]'}
+                    غرفة ماستر + غرفة نوم (سريرين مفردة)
                   </div>
                 </div>
 
