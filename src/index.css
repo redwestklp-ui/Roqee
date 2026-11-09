@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-burgundy: #570A1B;
+    --color-burgundy-light: #84394A;
+    --color-beige: #F3E2CC;
+    --color-gold: #C6A16B;
+    --color-cream: #FFF9F1;
+    --color-dark-brown: #241411;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+    background-color: #F3E2CC;
+    color: #241411;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-alexandria, .font-heading {
+    font-family: 'Almarai', system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Seamless Luxury Scroll - Native browser scrollbar hidden to remove ugly left gutter */
+html, body {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and old Edge */
+}
+
+::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera, Edge */
+  width: 0px !important;
+  height: 0px !important;
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent !important;
+}
+
+/* Print Styles for A4 Rental Contract */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+
+  .print-page {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    padding: 15mm 20mm !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+    border: 1px solid #C6A16B !important;
+    background: #ffffff !important;
+    page-break-after: avoid !important;
+  }
+}

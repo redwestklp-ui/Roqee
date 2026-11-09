@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>رُقِيّ للشقق الفندقية | VIP Hotel Apartments</title>
+    <meta name="description" content="الموقع الرسمي لشقق رُقِيّ الفندقية الفاخرة. استمتع بأعلى معايير الضيافة والخصوصية مع حجز فوري وعقد إلكتروني موثق." />
+    <meta property="og:title" content="رُقِيّ للشقق الفندقية | VIP Hotel Apartments" />
+    <meta property="og:description" content="تجربة فندقية فاخرة تجمع بين الأصالة والرفاهية العصرية في شقتين مستقلتين فارهتين." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        // Prevent extension scripts from crashing when overriding window.fetch
+        try {
+          var _origFetch = window.fetch ? window.fetch.bind(window) : undefined;
+          var _currentFetch = _origFetch;
+          Object.defineProperty(window, 'fetch', {
+            configurable: true,
+            enumerable: true,
+            get: function() {
+              return _currentFetch;
+            },
+            set: function(val) {
+              _currentFetch = val;
+            }
+          });
+        } catch (e) {
+          try {
+            var proto = window.constructor ? window.constructor.prototype : Window.prototype;
+            if (proto) {
+              var _protoFetch = window.fetch;
+              Object.defineProperty(proto, 'fetch', {
+                configurable: true,
+                enumerable: true,
+                get: function() { return _protoFetch; },
+                set: function(v) { _protoFetch = v; }
+              });
+            }
+          } catch (e2) {}
+        }
+
+        // Suppress benign third-party Chrome extension errors from bubbling to app
+        window.addEventListener('error', function(event) {
+          if (
+            (event.filename && event.filename.includes('chrome-extension://')) ||
+            (event.message && (
+              event.message.includes('Cannot set property fetch of #<Window>') ||
+              event.message.includes('fetch of #<Window> which has only a getter')
+            ))
+          ) {
+            event.stopImmediatePropagation();
+            event.preventDefault();
+            return true;
+          }
+        }, true);
+      })();
+    </script>
+  </head>
+  <body class="bg-[#F3E2CC] text-[#3A2522] antialiased selection:bg-[#570A1B] selection:text-[#FFF9F1]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

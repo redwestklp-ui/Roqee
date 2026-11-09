@@ -1,0 +1,6 @@
+{
+  "name": "رُقِيّ للشقق الفندقية | VIP Hotel Apartments",
+  "description": "الواجهة الرقمية الفاخرة ونظام الحجز الذكي لشقق رُقِيّ الفندقية الفاخرة مع إصدار عقد إيجار إلكتروني فوري قابل للطباعة A4.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
