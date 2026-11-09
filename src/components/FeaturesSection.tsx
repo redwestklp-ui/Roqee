@@ -58,7 +58,7 @@ export const FeaturesSection: React.FC = () => {
           </h2>
           <div className="w-16 h-1 bg-[#C6A16B] mx-auto rounded-full"></div>
           <p className="text-xs sm:text-sm md:text-base text-[#3A2522]/80 leading-relaxed font-light">
-            حرصنا في رُقِيّ على تزويد الشقتين بأحدث المرافق والتقنيات لتستمتع بإقامة تلبي أدق تفاصيل الراحة والرفاهية.
+            حرصنا في رُقِيّ على تزويد الشقق بأحدث المرافق والتقنيات لتستمتع بإقامة تلبي أدق تفاصيل الراحة والرفاهية.
           </p>
         </div>
 

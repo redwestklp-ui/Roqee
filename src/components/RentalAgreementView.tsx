@@ -152,8 +152,8 @@ export const RentalAgreementView: React.FC<RentalAgreementViewProps> = ({
                 <tr className="bg-gray-100 border-b border-gray-300">
                   <td className="p-2.5 font-bold text-gray-700 w-1/4">رقم واسم الوحدة:</td>
                   <td className="p-2.5 font-semibold text-[#570A1B]">{booking.apartmentName}</td>
-                  <td className="p-2.5 font-bold text-gray-700 w-1/4">الدور والمساحة:</td>
-                  <td className="p-2.5">{apartment.floor} · {apartment.area} م²</td>
+                  <td className="p-2.5 font-bold text-gray-700 w-1/4">المساحة الإجمالية:</td>
+                  <td className="p-2.5 font-bold">{apartment.area} م²</td>
                 </tr>
                 <tr className="border-b border-gray-300">
                   <td className="p-2.5 font-bold text-gray-700">تاريخ بدء الإيجار:</td>

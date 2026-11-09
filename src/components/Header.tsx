@@ -18,6 +18,7 @@ export const Header: React.FC<HeaderProps> = ({
   onNavigate
 }) => {
   const [secretModalOpen, setSecretModalOpen] = useState(false);
+  const [ownerModalOpen, setOwnerModalOpen] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [attempts, setAttempts] = useState(0);
@@ -145,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({
               title="رُقِيّ للشقق الفندقية"
             >
               {/* Circular Emblem with Double Gold Ring and Glow */}
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] bg-gradient-to-tr from-[#C6A16B] via-[#fae4be] to-[#997744] shadow-[0_0_20px_rgba(198,161,107,0.5)] transition-transform duration-300 group-hover:scale-105 shrink-0">
+              <div className="relative w-14 h-14 sm:w-20 sm:h-20 rounded-full p-[2px] sm:p-[2.5px] bg-gradient-to-tr from-[#C6A16B] via-[#fae4be] to-[#997744] shadow-[0_0_20px_rgba(198,161,107,0.5)] transition-transform duration-300 group-hover:scale-105 shrink-0">
                 <div className="w-full h-full rounded-full bg-[#FFF9F1] overflow-hidden border border-[#570A1B]/30 flex items-center justify-center relative">
                   <img 
                     src={SITE_INFO.logoUrl} 
@@ -159,11 +160,11 @@ export const Header: React.FC<HeaderProps> = ({
               {/* Typography: Wide Elegant "رُقِــيّ" with "للشقق الفندقية" Filling the Space */}
               <div className="flex flex-col text-right justify-center">
                 {/* 1. Main Name: Same font family and same gold color as "للشقق الفندقية" */}
-                <span className="font-extrabold text-[28px] sm:text-[34px] text-[#C6A16B] tracking-wider leading-none group-hover:brightness-110 transition-colors drop-shadow-sm">
+                <span className="font-extrabold text-[24px] sm:text-[34px] text-[#C6A16B] tracking-wider leading-none group-hover:brightness-110 transition-colors drop-shadow-sm">
                   رُقِـــيّ
                 </span>
                 {/* 2. Subtitle: "للشقق الفندقية" perfectly proportioned filling the space */}
-                <span className="text-[12px] sm:text-[14px] text-[#C6A16B] font-bold tracking-wide leading-tight mt-1.5 drop-shadow-sm">
+                <span className="text-[11px] sm:text-[14px] text-[#C6A16B] font-bold tracking-wide leading-tight mt-1 sm:mt-1.5 drop-shadow-sm">
                   للشقق الفندقية
                 </span>
               </div>
@@ -213,8 +214,30 @@ export const Header: React.FC<HeaderProps> = ({
               </button>
             </nav>
 
-            {/* Left Side (RTL): WhatsApp Concierge Button & VIP Crown Button */}
-            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {/* Left Side (RTL): Owner Profile Button, WhatsApp Concierge Button & VIP Crown Button */}
+            <div className="flex items-start gap-1.5 sm:gap-2.5 shrink-0 pt-1">
+              
+              {/* 1. Owner Profile Picture Button & Label */}
+              <div className="flex flex-col items-center shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setOwnerModalOpen(true)}
+                  className="group relative flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-xl p-[1.5px] bg-gradient-to-tr from-[#C6A16B] via-[#fae4be] to-[#997744] shadow-[0_2px_10px_rgba(198,161,107,0.35)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden border border-[#C6A16B]/60"
+                  title="المالك / أحمد الحارثي - اضغط للمزيد"
+                  aria-label="المالك أحمد الحارثي"
+                >
+                  <div className="w-full h-full rounded-[9px] overflow-hidden bg-[#3a0511] flex items-center justify-center relative">
+                    <img
+                      src="/assets/aistudio/WhatsApp_Image_2026-11-09_at_11.47.11_AM_469519d1.jpeg"
+                      alt="المالك أحمد الحارثي"
+                      className="w-full h-full object-cover object-[center_30%] scale-[1.25] -translate-y-1.5 group-hover:scale-135 transition-transform duration-300 select-none pointer-events-none"
+                    />
+                  </div>
+                </button>
+                <span className="text-[8px] sm:text-[9.5px] font-alexandria font-bold text-[#C6A16B] tracking-tight leading-none text-center whitespace-nowrap mt-1 drop-shadow-sm select-none">
+                  المالك/احمد الحارثي
+                </span>
+              </div>
               
               {/* Authentic WhatsApp Button (Clean, official WhatsApp look, no dots) */}
               <a
@@ -372,6 +395,61 @@ export const Header: React.FC<HeaderProps> = ({
               نظام حماية مشفر · رُقِيّ للشقق الفندقية VIP
             </div>
 
+          </div>
+        </div>
+      )}
+
+      {/* Owner Profile VIP Modal */}
+      {ownerModalOpen && (
+        <div 
+          className="fixed inset-0 z-[60] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200 select-none"
+          onClick={() => setOwnerModalOpen(false)}
+        >
+          <div 
+            className="bg-[#FFF9F1] border-2 border-[#C6A16B] rounded-3xl max-w-sm w-full p-6 text-center shadow-2xl relative space-y-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setOwnerModalOpen(false)}
+              className="absolute top-4 left-4 p-2 rounded-full hover:bg-[#F3E2CC]/80 text-[#570A1B] transition-colors cursor-pointer"
+              aria-label="إغلاق"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Frame with Owner Photo */}
+            <div className="relative w-28 h-28 mx-auto rounded-2xl p-1 bg-gradient-to-tr from-[#C6A16B] via-[#fae4be] to-[#997744] shadow-lg">
+              <div className="w-full h-full rounded-xl overflow-hidden bg-[#3a0511] flex items-center justify-center relative">
+                <img
+                  src="/assets/aistudio/WhatsApp_Image_2026-11-09_at_11.47.11_AM_469519d1.jpeg"
+                  alt="المالك أحمد الحارثي"
+                  className="w-full h-full object-cover object-[center_30%] scale-[1.25] -translate-y-2 select-none pointer-events-none"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-1.5 text-center">
+              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#570A1B]/10 text-[#570A1B] text-xs font-semibold">
+                <Crown className="w-3.5 h-3.5 text-[#C6A16B]" />
+                <span>شقق رُقِيّ الفندقية</span>
+              </div>
+              <h3 className="font-alexandria font-bold text-xl text-[#570A1B]">
+                المالك / أحمد الحارثي
+              </h3>
+              <p className="text-xs text-[#3A2522]/80 leading-relaxed font-light pt-1 px-2">
+                أهلاً وسهلاً بكم في رُقِيّ، نتشرف باستضافتكم ونسعى دائماً لتقديم تجربة إقامة فندقية فاخرة ومتميزة تليق بكم وبخصوصيتكم التامة.
+              </p>
+            </div>
+
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={() => setOwnerModalOpen(false)}
+                className="w-full py-2.5 px-4 rounded-xl bg-[#570A1B] hover:bg-[#6b0f24] text-[#FFF9F1] font-alexandria font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer border border-[#C6A16B]/60"
+              >
+                إغلاق
+              </button>
+            </div>
           </div>
         </div>
       )}

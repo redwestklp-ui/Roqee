@@ -51,7 +51,7 @@ export const TermsView: React.FC<TermsViewProps> = ({ onBack }) => {
             <ul className="space-y-2 text-xs sm:text-sm text-[#3A2522] leading-relaxed">
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#570A1B] shrink-0 mt-0.5" />
-                <span><strong>موعد تسجيل الوصول:</strong> يبدأ من الساعة 4:00 عصراً (16:00). الدخول ذاتي سلس عبر الرمز الإلكتروني بالدور الأرضي.</span>
+                <span><strong>موعد تسجيل الوصول:</strong> يبدأ من الساعة 4:00 عصراً (16:00). الدخول ذاتي سلس وسريع عبر الرمز الإلكتروني المشفر.</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#570A1B] shrink-0 mt-0.5" />

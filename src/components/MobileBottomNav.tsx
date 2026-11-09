@@ -36,7 +36,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           }`}
         >
           <Building2 className="w-5 h-5 mb-0.5" />
-          <span className="text-[10px]">الشقتين</span>
+          <span className="text-[10px]">الشقق</span>
         </button>
 
         {/* Central Book Action Button */}

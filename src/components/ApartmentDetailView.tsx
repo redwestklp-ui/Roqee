@@ -98,7 +98,7 @@ export const ApartmentDetailView: React.FC<ApartmentDetailViewProps> = ({
           <div className="space-y-2 text-right">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#570A1B] text-[#FFF9F1] text-xs font-alexandria font-semibold">
               <Sparkles className="w-3 h-3 text-[#C6A16B]" />
-              <span>شقة رقم {apartment.number} · {apartment.floor} · {apartment.area} م²</span>
+              <span>شقة رقم {apartment.number} · المساحة {apartment.area} م²</span>
             </div>
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-alexandria font-extrabold text-[#570A1B]">
               {apartment.name}

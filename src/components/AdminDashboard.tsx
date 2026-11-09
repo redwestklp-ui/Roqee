@@ -120,7 +120,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           {[
             { id: 'overview', label: 'نظرة عامة والتقارير' },
             { id: 'bookings', label: `إدارة الحجوزات والعقود (${bookings.length})` },
-            { id: 'apartments', label: 'إدارة وتعديل الشقتين' },
+            { id: 'apartments', label: 'إدارة وتعديل الشقق' },
             { id: 'availability', label: 'تقويم التوفر والحظر' },
             { id: 'settings', label: 'إعدادات الموقع ومعلومات التواصل' }
           ].map(tab => (
@@ -344,7 +344,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           <div className="space-y-6">
             <div className="text-right">
               <h2 className="font-alexandria font-bold text-xl text-[#570A1B]">
-                إدارة بيانات وأسعار شقتي رُقِيّ
+                إدارة بيانات وأسعار شقق رُقِيّ
               </h2>
               <p className="text-xs text-[#3A2522]/80 mt-1">
                 تعديل سعر الإيجار اليومي ومواصفات كل شقة على حدة.
@@ -426,7 +426,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
 
                   <div className="text-xs text-[#3A2522]/80 space-y-1">
                     <div>المساحة: <strong>{apt.area} م²</strong> · الغرف: <strong>{apt.rooms} غرف</strong></div>
-                    <div>الدور: <strong>{apt.floor}</strong> · السعة: <strong>{apt.capacity} أشخاص</strong></div>
+                    <div>الحمامات: <strong>{apt.bathrooms}</strong> · السعة: <strong>{apt.capacity} أشخاص</strong></div>
                   </div>
                 </div>
               ))}

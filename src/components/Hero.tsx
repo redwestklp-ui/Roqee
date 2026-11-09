@@ -70,7 +70,7 @@ export const Hero: React.FC<HeroProps> = ({
             onClick={onExploreApartments}
             className="bg-transparent hover:bg-[#FFF9F1]/10 text-[#FFF9F1] border border-[#C6A16B]/60 hover:border-[#C6A16B] px-6 py-3.5 rounded-xl font-alexandria font-medium text-sm sm:text-base transition-colors flex items-center justify-center gap-2"
           >
-            <span>استعراض تفاصيل الشقتين</span>
+            <span>استعراض تفاصيل الشقق</span>
             <ArrowLeft className="w-4 h-4 text-[#C6A16B]" />
           </button>
         </div>

@@ -276,7 +276,7 @@ export const ApartmentsShowcase: React.FC<ApartmentsShowcaseProps> = ({
                     {currentApartment.name}
                   </span>
                   <span className="px-3 py-1 rounded-full bg-[#F3E2CC] text-[#570A1B] font-medium border border-[#C6A16B]/50">
-                    {currentApartment.floor} · {currentApartment.area} م²
+                    المساحة {currentApartment.area} م²
                   </span>
                   <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 font-medium border border-emerald-300">
                     متاحة للحجز الفوري
@@ -479,7 +479,7 @@ export const ApartmentsShowcase: React.FC<ApartmentsShowcaseProps> = ({
               <div className="bg-[#F3E2CC]/80 p-3.5 rounded-xl border border-[#C6A16B] flex items-center gap-2.5 text-xs text-[#570A1B]">
                 <Sparkles className="w-4 h-4 text-[#C6A16B] shrink-0" />
                 <span className="font-bold">
-                  تجهيز إضافي مشمول للشقتين: عدد مراتب اضافيه 3 مع بطانيات ومخدات لاستيعاب حتى 7 ضيوف بكل راحة.
+                  تجهيز إضافي مشمول في الشقق: عدد مراتب اضافيه 3 مع بطانيات ومخدات لاستيعاب حتى 7 ضيوف بكل راحة.
                 </span>
               </div>
             </div>
@@ -537,7 +537,7 @@ export const ApartmentsShowcase: React.FC<ApartmentsShowcaseProps> = ({
                   جاهز لتأكيد حجز {currentApartment.name}؟
                 </h3>
                 <p className="text-xs text-[#F3E2CC]/80 font-light">
-                  الحجز مباشر مع توثيق إلكتروني فوري ودخول ذاتي ذكي بالدور الأرضي.
+                  الحجز مباشر مع توثيق إلكتروني فوري ودخول ذاتي ذكي.
                 </p>
               </div>
 

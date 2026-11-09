@@ -18,7 +18,7 @@ export const ContactSection: React.FC = () => {
           </h2>
           <div className="w-16 h-1 bg-[#C6A16B] mx-auto rounded-full"></div>
           <p className="text-sm sm:text-base text-[#3A2522]/80 leading-relaxed font-light">
-            يسعدنا الإجابة عن كافة استفساراتك حول الشقتين وتفاصيل الإقامة وتقديم تجربة حجز سلسة وفورية.
+            يسعدنا الإجابة عن كافة استفساراتك حول الشقق وتفاصيل الإقامة وتقديم تجربة حجز سلسة وفورية.
           </p>
         </div>
 
