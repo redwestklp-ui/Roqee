@@ -14,6 +14,7 @@ import { RentalAgreementView } from './components/RentalAgreementView';
 import { TermsView } from './components/TermsView';
 import { AdminDashboard } from './components/AdminDashboard';
 import { LuxuryScrollBar } from './components/LuxuryScrollBar';
+import { LoadingScreen } from './components/LoadingScreen';
 import { Booking, INITIAL_BOOKINGS } from './data/apartmentsData';
 
 export default function App() {
@@ -80,6 +81,9 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F3E2CC] text-[#3A2522] flex flex-col font-sans selection:bg-[#570A1B] selection:text-[#FFF9F1]">
       
+      {/* Initial Entry Luxury Loading Screen with Backdrop Blur & Spinner */}
+      <LoadingScreen />
+
       {/* Luxury Gold Scroll Progress Indicator */}
       <div 
         className="no-print fixed top-0 right-0 h-[2.5px] bg-gradient-to-l from-[#C6A16B] via-[#ebd2a9] to-[#C6A16B] z-50 transition-all duration-150 ease-out shadow-[0_0_8px_rgba(198,161,107,0.8)] pointer-events-none"

@@ -200,7 +200,7 @@ export const ApartmentDetailView: React.FC<ApartmentDetailViewProps> = ({
           </div>
 
           {/* Thumbnails row */}
-          <div className="grid grid-cols-4 gap-2.5 sm:gap-4">
+          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-9 gap-2 sm:gap-3">
             {apartment.images.map((img, idx) => (
               <button
                 key={idx}
